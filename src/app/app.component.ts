@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FavoriteChangedEventArgs } from './favorite/favorite.component';
-import { LikeChangedEventArgs } from './like/like.component';
 
 
 
@@ -11,7 +10,7 @@ import { LikeChangedEventArgs } from './like/like.component';
 })
 export class AppComponent {
   title = 'Angular app';
-
+  courses = [1,2];
   post = {
     title: "Title",
     isFavorite: true
@@ -22,6 +21,8 @@ export class AppComponent {
     isLiked: true,
     likesCount: 10
   }
+
+  viewMode = 'map';
 
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs)
 {

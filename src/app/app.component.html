@@ -15,5 +15,42 @@
 <like
 [likesCount] = "tweet.likesCount"
 [isActive] = "tweet.isLiked">
-
 </like>
+
+<div *ngIf="courses.length > 0; then coursesList else noCourses">
+    List of Courses
+</div>
+<ng-template #coursesList>
+    List of Courses
+</ng-template>
+<ng-template #noCourses>
+    No courses yet
+</ng-template>
+
+<div [hidden] = "courses.length==0">
+    List of Courses
+</div>
+<div [hidden]= "courses.length >0">
+    No courses yet
+</div>
+
+<ul class="nav nav-pills">
+    <li [class.active]="viewMode== 'map'"><a (click)="viewMode = 'map'">Map View</a></li>
+    <li [class.active]="viewMode== 'list'"><a (click)="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch] = "viewMode">
+    <div *ngSwitchCase="'map'">Map View Content</div>
+    <div *ngSwitchCase="'list'">List View Content</div>
+    <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<zippy title = "Shipping Details">
+    Shipping Details Content
+</zippy>
+<zippy title = "Billing Details">
+    Billing Details Content
+</zippy>
+
+<contact-form></contact-form><br>
+
+<signup-form></signup-form>
